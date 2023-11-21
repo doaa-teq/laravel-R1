@@ -3,8 +3,9 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\examplecontroller;
-use App\Http\Controllers\carscontroller;
-
+// use App\Http\Controllers\carscontroller;
+// use App\Http\Controllers\Carcontroller;//to be able to see the controller
+use App\Http\Controllers\newscontroller;//to be able to see the controller
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,7 +57,7 @@ use App\Http\Controllers\carscontroller;
 // });
 Route::get('/', function () {
 
-    return view('welcome');//the main homepage part should be avaliable not commented 
+    return view('welcomme');//the main homepage part should be avaliable not commented 
 
 });
 // Route::fallback(function(){
@@ -83,10 +84,11 @@ Route::get('/', function () {
 //         return view('car');//the main homepage part should be avaliable not commented 
     
 //     });
-Route::post('purchase', function () {
-    return view('purchase');
+// Route::post('purchase', function () {
+//     return view('purchase');
    
-})->name('purchase');
-Route::get('car',[carscontroller::class,'cars']);
+// })->name('purchase');
+Route::get('pop',[newscontroller::class,'create']);
+Route::post('addnews',[newscontroller::class,'store'])->name('con');
 
     

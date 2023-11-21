@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('journals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('car_name');
-            $table->string('dascription');
-            $table->string('purchase');
-            $table->decimal('price');
+            $table->string('title');
+            $table->string('content');
+            $table->string('auther');
+            $table->boolean('published');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('news');
     }
 };
