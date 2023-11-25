@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>cars Example</title>
+  <title>News</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -16,25 +16,28 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>car_name</th>
-        <th>description</th>
-        <th>purchased</th>
-        <th>edit</th>
+        <th>Titles</th>
+        <th>Contents</th>
+        <th>Authers</th>
+        <th>Publisheds</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
     <tr>
-      @foreach($cars as $data)
-        <td>{{$data->car_name}}</td>
-        <td>{{$data->dascription}}</td>
+      @foreach($nes as $data)
+        <td>{{$data->title}}</td>
+        <td>{{$data->content}}</td>
+        <td>{{$data->auther}}</td>
+
         <td>
-          @if($data->purchase)
+          @if($data->published)
             true 👍
           @else
             faulse 🤦‍♀️
           @endif
         </td>
-        <td><a href="editcar/{{$data->id}}">Edit</a></td>
+        <td><a href="editnews/{{$data->id}}">Edit</a></td>
 
       </tr>
       

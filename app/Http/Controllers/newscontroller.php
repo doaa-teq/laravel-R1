@@ -12,7 +12,9 @@ class newscontroller extends Controller
      */
     public function index()
     {
-        //
+        $nes=Journal::get();
+        return view('data',compact('nes'));
+
     }
 
     /**
@@ -60,7 +62,8 @@ class newscontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $ness=Journal::findOrFail($id);
+        return view('updatejournal',compact('ness'));
     }
 
     /**

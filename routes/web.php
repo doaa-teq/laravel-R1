@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\examplecontroller;
 // use App\Http\Controllers\carscontroller;
-// use App\Http\Controllers\Carcontroller;//to be able to see the controller
+use App\Http\Controllers\Carcontroller;//to be able to see the controller
 use App\Http\Controllers\newscontroller;//to be able to see the controller
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +90,9 @@ Route::get('/', function () {
 // })->name('purchase');
 Route::get('pop',[newscontroller::class,'create']);
 Route::post('addnews',[newscontroller::class,'store'])->name('con');
-
-    
+Route::get('car',[Carcontroller::class,'index']);
+Route::get('editcar/{id}',[Carcontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
+Route::put('updatecar/{id}',[Carcontroller::class,'edit'])->name('updatejournal');//editcar the sae name that used in the blade file compined with id     
+Route::get('data',[newscontroller::class,'index']);
+Route::get('editnews/{id}',[newscontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
+Route::put('updatejournal/{id}',[newscontroller::class,'edit'])->name('updatejournal');//editcar the sae name that used in the blade file compined with id     

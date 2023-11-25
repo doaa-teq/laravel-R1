@@ -12,7 +12,9 @@ class Carcontroller extends Controller
      */
     public function index()
     {
-        //
+        $cars=Car::get();
+        return view('car',compact('cars'));
+
     }
 
     /**
@@ -60,7 +62,13 @@ class Carcontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $car=Car::findOrFail($id);
+        return view('updatecar',compact('car'));
+        
+        // return view('updatecar');
+    //    return "car id is".$id ;//edit method for update
+
+
     }
 
     /**
