@@ -21,6 +21,7 @@
         <th>Authers</th>
         <th>Publisheds</th>
         <th>Edit</th>
+        <th>show</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@
           @endif
         </td>
         <td><a href="editnews/{{$data->id}}">Edit</a></td>
+        <td><a href="creative/{{$data->id}}">show</a></td>
 
       </tr>
       

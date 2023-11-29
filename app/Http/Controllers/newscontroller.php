@@ -12,8 +12,8 @@ class newscontroller extends Controller
      */
     public function index()
     {
-        $nes=Journal::get();
-        return view('data',compact('nes'));
+        $nes=Journal::get();//associative array that will used in the foreach loop
+        return view('data',compact('nes'));//compact for downloading tha data 
 
     }
 
@@ -54,7 +54,8 @@ class newscontroller extends Controller
      */
     public function show(string $id)
     {
-        //
+        $ness=Journal::findOrFail($id);//search for the id 
+        return view('creative',compact('ness'));//semd to view by compact
     }
 
     /**
@@ -62,8 +63,8 @@ class newscontroller extends Controller
      */
     public function edit(string $id)
     {
-        $ness=Journal::findOrFail($id);
-        return view('updatejournal',compact('ness'));
+        $ness=Journal::findOrFail($id);//search for the id 
+        return view('updatejournal',compact('ness'));//semd to view by compact
     }
 
     /**

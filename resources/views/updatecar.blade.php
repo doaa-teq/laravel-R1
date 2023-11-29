@@ -17,18 +17,18 @@
         @method('put')
         <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $car->car_name }}">
+            <input type="text" class="form-control" id="title" placeholder="Enter title" name="car_name" value="{{ $car->car_name }}">
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" rows="5" id="description" name="description">{{ $car->description }}</textarea>
+            <textarea class="form-control" rows="5" id="description" name="dascription">{{ $car->dascription }}</textarea>
         </div>
         <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" id="price" name="price" value="{{ $car->price }}placeholder="Enter Price">
+      <input type="number" class="form-control" id="price" name="price" value="{{ $car->price }}" placeholder="Enter Price">
        </div>
         <div class="checkbox">
-            <label><input type="checkbox" name="published" @checked($car->purchased)>Published</label>
+            <label><input type="checkbox" name="purchase" @checked($car->purchase)>Published</label>
         </div>
         <button type="submit" class="btn btn-default">Update</button>
     </form>

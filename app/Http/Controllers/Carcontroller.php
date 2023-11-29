@@ -7,14 +7,15 @@ use App\Models\Car;//to be able to see the model
 
 class Carcontroller extends Controller
 {
+    private $colunm = ['car_name','dascription','price'];//this will used in update method 
     /**
+     *
      * Display a listing of the resource.
      */
     public function index()
     {
         $cars=Car::get();
-        return view('car',compact('cars'));
-
+        return view('car',compact('cars'));//for download the data and 
     }
 
     /**
@@ -54,7 +55,8 @@ class Carcontroller extends Controller
      */
     public function show(string $id)
     {
-        //
+        $car=Car::findOrFail($id);
+        return view('details',compact('car'));
     }
 
     /**
@@ -76,7 +78,8 @@ class Carcontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Car::where('id',$id)->update($request->only($this->colunm));//here i used the name in the name o the colunmsarray
+        return 'updated';
     }
 
     /**
@@ -84,6 +87,7 @@ class Carcontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Car::where('id',$id)->delete();
+        return 'cardestroy';
     }
 }
