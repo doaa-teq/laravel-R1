@@ -99,4 +99,12 @@ Route::get('data',[newscontroller::class,'index']);
 Route::get('editnews/{id}',[newscontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
 Route::put('updatejournal/{id}',[newscontroller::class,'edit'])->name('updatejournal');//editcar the sae name that used in the blade file compined with id
 Route::get('creative/{id}',[newscontroller::class,'show'])->name('showjournal');//editcar the sae name that used in the blade file compined with id 
-//we used method put for more sequerity (edit news/id)only appear in url not a page    
+// Route::get('Trashed',[Carcontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
+Route::get('restorecar/{id}',[Carcontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
+// Route::get('delete/{id}',[Carcontroller::class,'delete']);//editcar the sae name that used in the blade file compined with id 
+Route::post('addcar',[newscontroller::class,'store'])->name('con');
+//we used method put for more sequerity (edit news/id)only appear in url not a page
+Route::get('trash',[newscontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
+Route::get('restorenews/{id}',[newscontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
+Route::get('delete/{id}',[newscontroller::class,'delete']);
+Route::get('destroynews/{id}',[newscontroller::class,'destroy']);

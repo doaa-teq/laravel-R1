@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>News</title>
+  <title>cars Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -16,34 +16,32 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Titles</th>
-        <th>Contents</th>
-        <th>Authers</th>
-        <th>Publisheds</th>
-        <th>Edit</th>
-        <th>show</th>
-        <th>delete<th>
+        <th>car_name</th>
+        <th>description</th>
+        <th>price</th>
+        <th>purchased</th>
+        <th>restore</th>
         <th>destroy</th>
+        <th>delete</th>
       </tr>
     </thead>
     <tbody>
     <tr>
-      @foreach($nes as $data)
-        <td>{{$data->title}}</td>
-        <td>{{$data->content}}</td>
-        <td>{{$data->auther}}</td>
-
+      @foreach($cars as $data)
+        <td>{{$data->car_name}}</td>
+        <td>{{$data->dascription}}</td>
+        <td>{{$data->price}}</td>
         <td>
-          @if($data->published)
+          @if($data->purchase)
             true 👍
           @else
             faulse 🤦‍♀️
           @endif
         </td>
-        <td><a href="editnews/{{$data->id}}">Edit</a></td>
-        <td><a href="creative/{{$data->id}}">show</a></td>
-        <td><a href="delete/{{$data->id}}">delete</a></td>
-        <td><a href="destroynews/{{$data->id}}">destroy</a></td>
+        
+        <td><a href="restorecar/{{$data->id}}">restore</a></td>
+        <td><a href="destroycar/{{$data->id}}">destroy</a></td>
+        <td><a href="dellete/{{$data->id}}">delete</a></td>
 
       </tr>
       

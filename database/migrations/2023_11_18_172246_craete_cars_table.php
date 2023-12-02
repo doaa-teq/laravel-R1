@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('dascription');
             $table->string('purchase');
             $table->decimal('price');
+            $table->SoftDeletes();
+
         });
     }
 

@@ -10,6 +10,7 @@ class newscontroller extends Controller
     /**
      * Display a listing of the resource.
      */
+    private $columns = ['title', 'content','auther','published'];
     public function index()
     {
         $nes=Journal::get();//associative array that will used in the foreach loop
@@ -30,22 +31,30 @@ class newscontroller extends Controller
      */
     public function store(Request $request)
     {
-        $nes=new Journal;//we use the same names of the field inside the table
-        $nes->title=$request->titles;
-        $nes->content=$request->contents;
-        $nes->auther=$request->authers;
-        $nes->published=$request->publisheds;
-        if(isset($request->publisheds)){
+        // $nes=new Journal;//we use the same names of the field inside the table
+        // $nes->title=$request->titles;
+        // $nes->content=$request->contents;
+        // $nes->auther=$request->authers;
+        // $nes->published=$request->publisheds;
+        // if(isset($request->publisheds)){
 
-            $nes->published = true;
+        //     $nes->published = true;
 
-        }else{
+        // }else{
 
-            $nes->published = false;
+        //     $nes->published = false;
 
-        }
-        $nes->save();
-        return "news data added sussessfully";
+        // }
+        // $nes->save();
+        // return "news data added sussessfully";
+        $data = $request->only($this->columns);
+        $data['published'] = isset($data['published'])? true : false;
+        $request->validate(['title'=>'required|string',
+        'content'=>'required|string',
+        'auther'=>'required|string',
+    ]);
+     Journal::create($data);
+      return "done";
         
     }
 
@@ -80,6 +89,19 @@ class newscontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Journal::where('id',$id)->delete();
+        return redirect ('trash');
     }
+    public function Trashed(){
+        $nes=Journal::onlyTrashed()->get();
+        return view('trash',compact('nes'));
+    }
+    public function restore(string $id){
+        Journal::where('id',$id)->restore();
+        return redirect ('data');
+    }
+    public function delete(string $id){
+        Journal::where('id',$id)->forceDelete();
+        return redirect ('trash');
+}
 }

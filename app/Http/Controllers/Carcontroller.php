@@ -47,6 +47,7 @@ class Carcontroller extends Controller
         }
         $cars->save();
         return "cars data added sussessfully";
+        
 
     }
 
@@ -88,6 +89,18 @@ class Carcontroller extends Controller
     public function destroy(string $id)
     {
         Car::where('id',$id)->delete();
-        return 'cardestroy';
+        return redirect ('car');
     }
+    public function Trashed(){
+        $cars=Car::onlyTrashed()->get();
+        return view('Trashed',compact('cars'));
+    }
+    public function restore(string $id){
+        Car::where('id',$id)->restore();
+        return redirect ('car');
+    }
+    public function delete(string $id){
+        Car::where('id',$id)->forceDelete();
+        return redirect ('Trashed');
+}
 }
