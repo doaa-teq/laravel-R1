@@ -2,7 +2,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\examplecontroller;
+use App\Http\Controllers\examplecontroller;
 // use App\Http\Controllers\carscontroller;
 use App\Http\Controllers\Carcontroller;//to be able to see the controller
 use App\Http\Controllers\newscontroller;//to be able to see the controller
@@ -108,3 +108,9 @@ Route::get('trash',[newscontroller::class,'Trashed']);//editcar the sae name tha
 Route::get('restorenews/{id}',[newscontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
 Route::get('delete/{id}',[newscontroller::class,'delete']);
 Route::get('destroynews/{id}',[newscontroller::class,'destroy']);
+Route::get('pop',[newscontroller::class,'create']);
+Route::post('addnews',[newscontroller::class,'store'])->name('con');
+// Route::get('showimage',[newscontroller::class,'showimage']);
+Route::post('addimage',[newscontroller::class,'uploud'])->name('image');
+Route::put('bnw/{id}',[newscontroller::class,'upd']);//editcar the sae name that used in the blade file compined with id 
+Route::put('update/{id}',[newscontroller::class,'upd'])->name('updatenews');//editcar the sae name that used in the blade file compined with id and using update functon    

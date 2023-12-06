@@ -31,22 +31,30 @@ class Carcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $cars=new Car;//we use the same names of the field inside the table
-        $cars->car_name=$request->title;
-        $cars->dascription=$request->description;
-        $cars->purchase=$request->remember;
-        $cars->price=$request->price;
-        if(isset($request->remember)){
+        // $cars=new Car;//we use the same names of the field inside the table
+        // $cars->car_name=$request->title;
+        // $cars->dascription=$request->description;
+        // $cars->purchase=$request->remember;
+        // $cars->price=$request->price;
+        // if(isset($request->remember)){
 
-            $cars->purchase = true;
+        //     $cars->purchase = true;
 
-        }else{
+        // }else{
 
-            $cars->purchase = false;
+        //     $cars->purchase = false;
 
-        }
-        $cars->save();
-        return "cars data added sussessfully";
+        // }
+        // $cars->save();
+        // return "cars data added sussessfully";
+        $data = $request->only($this->columns);
+        $data['published'] = isset($data['published'])? true : false;
+        $request->validate(['title'=>'required|string',
+        'content'=>'required|string',
+        'auther'=>'required|string',
+    ]);
+     Journal::create($data);
+      return "done";
         
 
     }

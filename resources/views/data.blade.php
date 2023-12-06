@@ -19,11 +19,13 @@
         <th>Titles</th>
         <th>Contents</th>
         <th>Authers</th>
+        <th>image</th>
         <th>Publisheds</th>
-        <th>Edit</th>
+         <th>Edit</th>
         <th>show</th>
         <th>delete<th>
         <th>destroy</th>
+        <th>update</th>
       </tr>
     </thead>
     <tbody>
@@ -32,18 +34,20 @@
         <td>{{$data->title}}</td>
         <td>{{$data->content}}</td>
         <td>{{$data->auther}}</td>
+        <td>{{$data->image}}</td>
 
         <td>
           @if($data->published)
-            true 👍
+            1 👍
           @else
-            faulse 🤦‍♀️
+            0 🤦‍♀️
           @endif
         </td>
         <td><a href="editnews/{{$data->id}}">Edit</a></td>
         <td><a href="creative/{{$data->id}}">show</a></td>
         <td><a href="delete/{{$data->id}}">delete</a></td>
         <td><a href="destroynews/{{$data->id}}">destroy</a></td>
+        <td><a href="update/{{$data->id}}">update</a></td>
 
       </tr>
       

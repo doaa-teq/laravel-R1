@@ -14,6 +14,7 @@ class Journal extends Model
         'title',
         'content',
         'auther',
-        'published'
+        'published',
+        'image'
         ];
 }
