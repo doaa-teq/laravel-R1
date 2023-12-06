@@ -100,9 +100,24 @@ class newscontroller extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
+    {   $messages= $this->massage();
+            
+        $data=$request->validate(['title'=>'required|string',
+        'content'=>'required|string',
+        'auther'=>'required|string',
+        'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
+        ],$messages);
+       
+        $data['published'] = isset($request->published);
+
+        // update image if new file selected
+        if($request->hasFile('image')){
+            $fileName = $this->uploadFile($request->image, 'assets/images');
+            $data['image']= $fileName;
+        }
+
+        //return dd($data);
         Journal::where('id',$id)->update($request->only($this->column));//here i used the name in the name o the colunmsarray
-        $filename=$this->uploadFile($request->image,'assets\images');
         return $filename;
       }
         // return 'updated';

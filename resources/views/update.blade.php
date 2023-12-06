@@ -12,7 +12,8 @@
 
 <div class="container">
   <h2>update news</h2>
-  <form action="{{route('updatenews',[$nes->id])}}" method='post' enctype="multipart/form-data" >
+  <form action="{{route('updatenews',[$nes->id])}}" enctype="multipart/form-data"method='post' enctype="multipart/form-data" >
+  <img src=" {{ asset('assets/images/'.$nes->image) }} " alt="news" style="width:250px;">
   <input type="hidden"  name="id" placeholder="Enter id" value="{{$nes ->id}}">
     @csrf
     @method('put')
@@ -39,6 +40,7 @@
       </div> 
       <div class="form-group">
             <label for="image">Image:</label>
+            <input type="file" class="form-control" id="image" name="image" @img($nes->published)>
             <input type="file" class="form-control" id="image" name="image" @img($nes->published)>
             @error('image')
                 {{ $message }}

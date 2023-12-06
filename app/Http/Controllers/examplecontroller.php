@@ -24,5 +24,11 @@ class examplecontroller extends Controller
       $filename=$this->uploadFile($request->image,'assets\images');
       return $filename;
     }//the name of method is test1 and it will return to login page
+    public function show(){
+      return view("exm");
+    }//the name of method is test1 and it will return 
+    public function blog(){
+      return view("modi");
+    }//the name of method is test1 and it will return 
     
 }

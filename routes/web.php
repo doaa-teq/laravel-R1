@@ -112,5 +112,7 @@ Route::get('pop',[newscontroller::class,'create']);
 Route::post('addnews',[newscontroller::class,'store'])->name('con');
 // Route::get('showimage',[newscontroller::class,'showimage']);
 Route::post('addimage',[newscontroller::class,'uploud'])->name('image');
-Route::get('update/{id}',[newscontroller::class,'upd']);//editcar the sae name that used in the blade file compined with id 
+Route::get('update/{id}',[newscontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
 Route::put('done/{id}',[newscontroller::class,'upd'])->name('updatenews');//editcar the sae name that used in the blade file compined with id and using update functon    
+Route::get('img',[examplecontroller::class,'show']);//editcar the sae name that used in the blade file compined with id 
+Route::get('imgg',[examplecontroller::class,'blog']);//editcar the sae name that used in the blade file compined with id 
