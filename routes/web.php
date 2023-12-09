@@ -6,6 +6,7 @@ use App\Http\Controllers\examplecontroller;
 // use App\Http\Controllers\carscontroller;
 use App\Http\Controllers\Carcontroller;//to be able to see the controller
 use App\Http\Controllers\newscontroller;//to be able to see the controller
+use App\Http\Controllers\entriescontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -114,5 +115,9 @@ Route::post('addnews',[newscontroller::class,'store'])->name('con');
 Route::post('addimage',[newscontroller::class,'uploud'])->name('image');
 Route::get('update/{id}',[newscontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
 Route::put('done/{id}',[newscontroller::class,'upd'])->name('updatenews');//editcar the sae name that used in the blade file compined with id and using update functon    
-Route::get('img',[examplecontroller::class,'show']);//editcar the sae name that used in the blade file compined with id 
+Route::get('img/{id?}',[entriescontroller::class,'index']);//editcar the sae name that used in the blade file compined with id 
 Route::get('imgg',[examplecontroller::class,'blog']);//editcar the sae name that used in the blade file compined with id 
+Route::get('info',[entriescontroller::class,'create']);
+Route::post('addinfo',[entriescontroller::class,'store'])->name('inf');
+Route::get('infor',[entriescontroller::class,'show']);
+

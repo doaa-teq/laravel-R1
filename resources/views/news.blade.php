@@ -14,6 +14,7 @@
   <h2>Add news</h2>
   <form action="{{route('con')}}" method='post' enctype="multipart/form-data" >
     @csrf
+    @method('put')
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" value="{{ old('title') }}">
