@@ -120,4 +120,7 @@ Route::get('imgg',[examplecontroller::class,'blog']);//editcar the sae name that
 Route::get('info',[entriescontroller::class,'create']);
 Route::post('addinfo',[entriescontroller::class,'store'])->name('inf');
 Route::get('infor',[entriescontroller::class,'show']);
-
+Route::get('placess',[entriescontroller::class,'index']);
+Route::get('trassh',[entriescontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
+Route::get('restoreplaces/{id}',[entriescontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
+Route::get('delete/{id}',[entriescontroller::class,'destroy']);

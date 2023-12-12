@@ -15,7 +15,8 @@ class entriescontroller extends Controller
     public function index()
     {
         $useful=Entry::get();
-        return view('exm',compact('useful'));//for download the data and 
+        // return view('exm',compact('useful'));//for download the data and 
+        return view('places',compact('useful'));//for download the data and 
     }
 
     /**
@@ -70,6 +71,19 @@ class entriescontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Entry::where('id',$id)->delete();
+        return view ('places');
     }
+    public function delete(string $id){
+        
+    }
+    public function Trashed(){
+        $useful=Entry::onlyTrashed()->get();
+        return view('Trachedd',compact('useful'));
+    }
+    public function restore(string $id){
+        Entry::where('id',$id)->restore();
+        return redirect ('placess');
+    }
+    
 }

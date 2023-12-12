@@ -157,7 +157,7 @@ class newscontroller extends Controller
     public function delete(string $id){
         Journal::where('id',$id)->forceDelete();
         return redirect ('trash');
-}
+    }
 // public function showimage(){
 //     return view("images");
 //   }//the name of method is test1 and it will return to login page

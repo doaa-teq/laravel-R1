@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image',100);
             $table->decimal('from_price');
             $table->decimal('to_price');
+            $table->SoftDeletes();
         });
     }
 
