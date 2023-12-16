@@ -13,6 +13,11 @@ class Car extends Model
         'car_name',
        'dascription',
         'price',
-        'purchase'
+        'purchase',
+        'category_id'
     ];//we use the names in the schema of tables
+    
+        public function category(){
+        return $this->belongsTo(Category::class);//to connect THE TWO MODELS TO USE IT  TO OBTAIN CATEGORY DATA
+    }
 }

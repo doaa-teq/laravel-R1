@@ -23,6 +23,7 @@
         <th>edit</th>
         <th>show</th>
         <th>destroy</th>
+        <th>category</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@
         <td>{{$data->car_name}}</td>
         <td>{{$data->dascription}}</td>
         <td>{{$data->price}}</td>
+
         <td>
           @if($data->purchase)
             true 👍
@@ -38,15 +40,14 @@
             faulse 🤦‍♀️
           @endif
         </td>
-        
         <td><a href="editcar/{{$data->id}}">Edit</a></td>
         <td><a href="details/{{$data->id}}">show</a></td>
         <td><a href="destroycar/{{$data->id}}">destroy</a></td>
-
+        <td>{{$data->category->categoryName}}</td>
       </tr>
       
       @endforeach
-
+     
     </tbody>
 </div>
 

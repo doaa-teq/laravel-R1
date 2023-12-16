@@ -27,6 +27,15 @@
       <label for="price">Price:</label>
       <input type="number" class="form-control" id="price" name="price" value="{{ $car->price }}" placeholder="Enter Price">
        </div>
+       <div class="form-group">
+      <label for="category">category:</label>
+       <select name="category_id" id="">
+          <option value="">{{ $car->category_id }}</option>
+        @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->categoryName}}</option>
+       @endforeach
+       </select>
+       </div>
         <div class="checkbox">
             <label><input type="checkbox" name="purchase" @checked($car->purchase)>Published</label>
         </div>

@@ -103,7 +103,8 @@ Route::get('creative/{id}',[newscontroller::class,'show'])->name('showjournal');
 // Route::get('Trashed',[Carcontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
 Route::get('restorecar/{id}',[Carcontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
 // Route::get('delete/{id}',[Carcontroller::class,'delete']);//editcar the sae name that used in the blade file compined with id 
-Route::post('addcar',[newscontroller::class,'store'])->name('con');
+Route::get('addcar',[Carcontroller::class,'create']);
+Route::post('addcars',[Carcontroller::class,'store'])->name('cons');
 //we used method put for more sequerity (edit news/id)only appear in url not a page
 Route::get('trash',[newscontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
 Route::get('restorenews/{id}',[newscontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 

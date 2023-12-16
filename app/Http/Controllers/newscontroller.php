@@ -26,6 +26,7 @@ class newscontroller extends Controller
     public function create()
     {
         return view('news');//the main homepage part should be avaliable not commented 
+        $table->string('newsName');
     }
 
     /**

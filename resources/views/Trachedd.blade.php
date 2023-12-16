@@ -25,12 +25,12 @@
     </thead>
     <tbody>
     <tr>
-      @foreach($useful as $datta)
-        <td>{{$datta->title}}</td>
+      @foreach($useful as $data)
+        <td>{{$data->title}}</td>
 
-        <td><a href="editplaces/{{$datta->id}}">Edit</a></td>
-        <td><a href="delete/{{$datta->id}}">delete</a></td>
-        <td><a href="restoreplaces/{{$datta->id}}">restore</a></td>
+        <td><a href="editplaces/{{$data->id}}">Edit</a></td>
+        <td><a href="delete/{{$data->id}}">delete</a></td>
+        <td><a href="restoreplaces/{{$data->id}}">restore</a></td>
 
         </tr>
 

@@ -21,6 +21,7 @@ class CarFactory extends Factory
           'dascription'=>fake()->text(),
            'price'=>fake()->randomNumber(2),
            'purchase' => 1,
+           'category_id'=>fake()->Numberbetween($min=1,$max=2),
         ];
     }
 }

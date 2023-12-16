@@ -12,18 +12,18 @@
 
 <div class="container">
     <h2>addCar</h2>
-    <form action="{{ route('recieve') }}" method="post">
+    <form action="{{ route('cons') }}" method="post">
         @csrf
         <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter title" name="car_name" value="{{ old('car_name') }}">
+            <input type="text" class="form-control" id="car_name" placeholder="Enter title" name="car_name" value="{{ old('car_name') }}">
             @error('car_name')
             {{ $message }}
             @enderror
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" rows="5" id="description" name="dascription">{{ old('dascription') }}</textarea>
+            <textarea class="form-control" rows="5" id="dascription" name="dascription">{{ old('dascription') }}</textarea>
             @error('dascription')
             {{ $message }}
             @enderror
@@ -35,10 +35,19 @@
          {{ $message }}
         @enderror
        </div>
+       <div class="form-group">
+      <label for="price">category:</label>
+       <select name="category_id" id="">
+        <option value="">select category</option>
+        @foreach($categories as $category)
+          <option value="{{$category->id}}">{{$category->categoryName}}</option>
+        @endforeach
+       </select>
+       </div>
         <div class="checkbox">
-            <label><input type="checkbox" name="purchase" @checked($car->purchase)>Published</label>
+            <label><input type="checkbox" name="purchase">Published</label>
         </div>
-        <button type="submit" class="btn btn-default">Update</button>
+        <button type="submit" class="btn btn-default">add</button>
     </form>
 </div>
 

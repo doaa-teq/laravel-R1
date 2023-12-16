@@ -10,7 +10,7 @@
     <br>
     describtion: {{$car->dascription}}
     <br>
-    price: {{$car->price}}
+    category: {{$car->category->categoryName}}
     <br>
 
 </body>

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('dascription');
             $table->string('purchase');
             $table->decimal('price');
+            // $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('category_id')->constrained('categories');//category_id is the primary key in the other table and categories is the table neme
             $table->SoftDeletes();
 
         });
