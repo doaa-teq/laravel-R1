@@ -32,7 +32,7 @@
        <select name="category_id" id="">
           <option value="">{{ $car->category_id }}</option>
         @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->categoryName}}</option>
+            <option value="{{$category->id}}"@selected( $category->categoryName == $car->category->categoryName)>{{$category->categoryName}}</option>
        @endforeach
        </select>
        </div>

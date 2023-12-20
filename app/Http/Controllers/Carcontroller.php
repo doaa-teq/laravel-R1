@@ -115,4 +115,10 @@ class Carcontroller extends Controller
         Car::where('id',$id)->forceDelete();
         return redirect ('Trashed');
 }
+public function messages(){
+    return [
+        'car_name.required'=>'Title is required',
+        'dascription.required'=> 'should be text',
+    ];
+}
 }

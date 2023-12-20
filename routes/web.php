@@ -7,7 +7,9 @@ use App\Http\Controllers\examplecontroller;
 use App\Http\Controllers\Carcontroller;//to be able to see the controller
 use App\Http\Controllers\newscontroller;//to be able to see the controller
 use App\Http\Controllers\entriescontroller;
-/*
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Contactcontroller;
+/*se App\Http\Controllers\Contactcontroller;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -125,3 +127,11 @@ Route::get('placess',[entriescontroller::class,'index']);
 Route::get('trassh',[entriescontroller::class,'Trashed']);//editcar the sae name that used in the blade file compined with id 
 Route::get('restoreplaces/{id}',[entriescontroller::class,'restore']);//editcar the sae name that used in the blade file compined with id 
 Route::get('delete/{id}',[entriescontroller::class,'destroy']);
+
+Auth::routes(['verify'=>true]);
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('contact',[Contactcontroller::class,'create'])->name('contact.show');
+Route::post('contact_mail',[Contactcontroller::class,'contact_mail_send']);
+
+
