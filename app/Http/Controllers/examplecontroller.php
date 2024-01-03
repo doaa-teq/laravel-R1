@@ -30,5 +30,11 @@ class examplecontroller extends Controller
     public function blog(){
       return view("modi");
     }//the name of method is test1 and it will return 
+    public function myseccion(){
+      session()->put('test', 'First Laravel session');//test is the session name only
+      session()->forget('test');
+      $data = session('test');
+      return view('secion',compact('data'));
+    }
     
 }

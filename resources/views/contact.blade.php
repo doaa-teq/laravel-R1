@@ -10,11 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-auto">
+    <div>
+      <a href="{{ LaravelLocalization::getNonLocalizedURL('en')}}">English</a>
+      <a href="{{ LaravelLocalization::getNonLocalizedURL('ar')}}">Arabic</a>
+    </div>
+
     <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ __('masseges.Contact_Us')}}</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">welcome to the contact page</p>
     </div>
     <form action="{{url('contact_mail')}}" method='POST'>

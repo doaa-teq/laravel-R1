@@ -93,7 +93,7 @@ Route::get('/', function () {
 // })->name('purchase');
 Route::get('pop',[newscontroller::class,'create']);
 Route::post('addnews',[newscontroller::class,'store'])->name('con');
-Route::get('car',[Carcontroller::class,'index']);
+Route::get('car',[Carcontroller::class,'index'])->middleware('verified');
 Route::get('editcar/{id}',[Carcontroller::class,'edit']);//editcar the sae name that used in the blade file compined with id 
 Route::put('updateCar/{id}',[Carcontroller::class,'update'])->name('updateCar');//editcar the sae name that used in the blade file compined with id and using update functon    
 Route::get('destroycar/{id}',[Carcontroller::class,'destroy']);//editcar the sae name that used in the blade file compined with id 
@@ -130,8 +130,22 @@ Route::get('delete/{id}',[entriescontroller::class,'destroy']);
 
 Auth::routes(['verify'=>true]);
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('contact',[Contactcontroller::class,'create'])->name('contact.show');
 Route::post('contact_mail',[Contactcontroller::class,'contact_mail_send']);
+Route::get('secion1',[examplecontroller::class,'myseccion']);//test1 ata first is the word that will be written in the url and the other one the function name that open the login page 
+Route::group(
+    [
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('contact',[Contactcontroller::class,'create'])->name('contact.show');
+        Route::post('contact_mail',[Contactcontroller::class,'contact_mail_send']);
+        Route::get('addcar',[Carcontroller::class,'create'])->name('addcar');
+        Route::post('addcars',[Carcontroller::class,'store'])->name('cons');
+    });
+
+
+
 
 

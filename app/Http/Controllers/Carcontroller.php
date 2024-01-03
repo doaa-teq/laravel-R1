@@ -34,31 +34,43 @@ class Carcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $cars=new Car;//we use the same names of the field inside the table
-        $cars->car_name=$request->car_name;
-        $cars->dascription=$request->dascription;
-        $cars->purchase=$request->remember;
-        $cars->price=$request->price;
-        $cars->category_id=$request->category_id;
-        if(isset($request->remember)){
+        // $cars=new Car;//we use the same names of the field inside the table
+        // $cars->car_name=$request->car_name;
+        // $cars->dascription=$request->dascription;
+        // $cars->purchase=$request->remember;
+        // $cars->price=$request->price;
+        // $cars->category_id=$request->category_id;
+        // if(isset($request->remember)){
 
-            $cars->purchase = true;
+        //     $cars->purchase = true;
 
-        }else{
+        // }else{
 
-            $cars->purchase = false;
+        //     $cars->purchase = false;
 
-        }
-        $cars->save();
-        return "cars data added sussessfully";
-    //     $data = $request->only($this->column);
-    //     $data['published'] = isset($data['published'])? true : false;
-    //     $request->validate(['car_name'=>'required|string',
-    //     'description'=>'required|string',
+        // }
+        // $cars->save();
+        // return "cars data added sussessfully";
+        $massage=[
+            'car_name.required'=> __('masseges.car_name'),
+            'dascription.required'=>__('masseges.dascription'),
+            'price.required'=>__('masseges.price'),
+        ];
 
-    // ]);
-    //  Car::create($data);
-    //   return "done";
+        // $data = $request->only($this->columns);
+        
+        $data=$request->validate(['car_name'=>'required|string',
+        'dascription'=>'required|string',
+        'price'=>'required|string',
+    ],$massage);
+        $data = $request->only($this->column);
+        $data['published'] = isset($data['published'])? true : false;
+        $request->validate(['car_name'=>'required|string',
+        'description'=>'required|string','price'=>'required|string',
+
+    ]);
+     Car::create($data);
+      return "done";
         
 
     }
@@ -117,7 +129,7 @@ class Carcontroller extends Controller
 }
 public function messages(){
     return [
-        'car_name.required'=>'Title is required',
+        'car_name.required'=>__ ('masseges.car_name'),
         'dascription.required'=> 'should be text',
     ];
 }

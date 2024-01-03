@@ -11,21 +11,17 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
 
 
-class ContactMail extends Mailable
+class DemoMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($user)
+     public array $data;
+    public function __construct($data)
     {
-        $this->user=$user;
-    }
-    public function build()
-    {
-        return $this->markdown('emails.contact')->subject(config('app.name').', Contact Us');
+        $this->data=$data;
     }
 
     /**
@@ -34,9 +30,8 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address($this->user['email'], $this->user['name']),
-            subject:$this->user['name'],
-
+            from: new Address($this->fromAddress, $this->fromName),
+            subject: 'Demo Mail',
         );
     }
 
@@ -46,10 +41,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.contact',
-            with:[
-                'user'=>$this->user,
-            ]
+            view: 'view.name',
         );
     }
 
