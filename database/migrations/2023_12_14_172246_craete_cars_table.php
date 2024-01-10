@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories');//category_id is the primary key in the other table and categories is the table neme
             $table->SoftDeletes();
 
-        });
+        }); 
     }
 
     /**

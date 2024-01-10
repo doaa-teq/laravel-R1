@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('expire')->default(0);
         });
     }
 
